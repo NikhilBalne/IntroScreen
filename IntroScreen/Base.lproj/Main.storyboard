@@ -1,24 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Led-LU-uJk">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Intro ScreenVC-->
+        <scene sceneID="qGs-Hv-T6U">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController storyboardIdentifier="IntroScreenVC" id="Led-LU-uJk" customClass="IntroScreenVC" customModule="IntroScreen" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="24N-0c-SNq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ba6-Jw-DTh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Led-LU-uJk" id="qpS-sm-wo2"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="FWg-BS-Ww4">
+                                <rect key="frame" x="187.5" y="765" width="39" height="37"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYV-uS-1EV">
+                                <rect key="frame" x="8" y="810" width="398" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="vKY-Rg-BXt"/>
+                                </constraints>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="Led-LU-uJk" eventType="touchUpInside" id="VJj-BF-1kO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="HOF-UK-tBa" firstAttribute="trailing" secondItem="IYV-uS-1EV" secondAttribute="trailing" constant="8" id="1eA-tk-XWJ"/>
+                            <constraint firstItem="ba6-Jw-DTh" firstAttribute="height" secondItem="24N-0c-SNq" secondAttribute="height" id="2Yt-ki-Ac2"/>
+                            <constraint firstItem="ba6-Jw-DTh" firstAttribute="trailing" secondItem="HOF-UK-tBa" secondAttribute="trailing" id="C0Y-bK-G2j"/>
+                            <constraint firstItem="HOF-UK-tBa" firstAttribute="bottom" secondItem="IYV-uS-1EV" secondAttribute="bottom" constant="8" id="Ggv-WX-QRh"/>
+                            <constraint firstItem="ba6-Jw-DTh" firstAttribute="width" secondItem="24N-0c-SNq" secondAttribute="width" id="LTk-mr-reZ"/>
+                            <constraint firstAttribute="bottom" secondItem="ba6-Jw-DTh" secondAttribute="bottom" id="MDS-HA-ugr"/>
+                            <constraint firstItem="IYV-uS-1EV" firstAttribute="leading" secondItem="HOF-UK-tBa" secondAttribute="leading" constant="8" id="Rh8-hr-hl8"/>
+                            <constraint firstItem="ba6-Jw-DTh" firstAttribute="top" secondItem="24N-0c-SNq" secondAttribute="top" id="X2D-6L-nZ6"/>
+                            <constraint firstItem="ba6-Jw-DTh" firstAttribute="leading" secondItem="HOF-UK-tBa" secondAttribute="leading" id="c7I-Tc-j4E"/>
+                            <constraint firstItem="IYV-uS-1EV" firstAttribute="top" secondItem="FWg-BS-Ww4" secondAttribute="bottom" constant="8" id="ecy-Ge-BHs"/>
+                            <constraint firstItem="FWg-BS-Ww4" firstAttribute="centerX" secondItem="HOF-UK-tBa" secondAttribute="centerX" id="l6j-JD-XPU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HOF-UK-tBa"/>
                     </view>
+                    <connections>
+                        <outlet property="nextButton" destination="IYV-uS-1EV" id="WpZ-rG-JCZ"/>
+                        <outlet property="pageControl" destination="FWg-BS-Ww4" id="nbD-66-RQj"/>
+                        <outlet property="scrollView" destination="ba6-Jw-DTh" id="zRR-ph-PbV"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gWM-ZU-f7J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="882.60869565217399" y="112.5"/>
         </scene>
     </scenes>
 </document>
